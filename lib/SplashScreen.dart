@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_lets_begin/BaseUtilis.dart';
+import 'package:flutter_lets_begin/LoginScreen.dart';
 
-void main() => runApp(SplashScreen());
+void main() => runApp(MyApp());
 
-class SplashScreen extends StatelessWidget {
+class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -10,12 +12,12 @@ class SplashScreen extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.purple,
       ),
-      home: CreatePage(),
+      home: SplashScreen(),
     );
   }
 }
 
-class CreatePage extends StatelessWidget {
+class SplashScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,12 +41,17 @@ class CreateView extends StatelessWidget {
           color: Colors.black.withOpacity(0.5),
         ),
         child: Center(
-          child: Text(
-            "Lets Begin",
-            style: TextStyle(
-              fontSize: 60,
-              color: Colors.white,
-              fontWeight: FontWeight.bold,
+          child: GestureDetector(
+            onTap: (){
+              loadNext(context);
+            },
+            child: Text(
+              "Lets Begin",
+              style: TextStyle(
+                fontSize: 60,
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
+              ),
             ),
           ),
         ),
@@ -52,3 +59,10 @@ class CreateView extends StatelessWidget {
     );
   }
 }
+
+void loadNext(BuildContext context) {
+  Navigator.push(
+      context, new MaterialPageRoute(builder: (context) => LoginScreen()));
+}
+
+
