@@ -1,6 +1,9 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_lets_begin/BaseUtilis.dart';
 import 'package:flutter_lets_begin/LoginScreen.dart';
+import 'package:flutter_lets_begin/Res.dart';
 
 void main() => runApp(MyApp());
 
@@ -22,13 +25,20 @@ class MyHomePage extends StatefulWidget {
   SplashScreen createState() => new SplashScreen();
 }
 
-
 class SplashScreen extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: CreateView(),
     );
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    Timer(Duration(seconds: 5), () {
+      loadNext(context);
+    });
   }
 }
 
@@ -48,11 +58,11 @@ class CreateView extends StatelessWidget {
         ),
         child: Center(
           child: GestureDetector(
-            onTap: (){
+            onTap: () {
               loadNext(context);
             },
             child: Text(
-              "Lets Begin",
+              Strings.appName,
               style: TextStyle(
                 fontSize: 60,
                 color: Colors.white,
@@ -68,7 +78,6 @@ class CreateView extends StatelessWidget {
 
 void loadNext(BuildContext context) {
   Navigator.push(
-      context, new MaterialPageRoute(builder: (context) => LoginScreen()));
+      context, new MaterialPageRoute(builder: (context) => LoginScreen())
+  );
 }
-
-
