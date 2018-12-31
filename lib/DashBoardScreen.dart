@@ -43,9 +43,38 @@ class PlanentItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-        leading: CircleAvatar(child: Text(item.name[0])),
-        title: Text(item.name),
-        subtitle: Text(item.name));
+    return GestureDetector(
+      onTap: () {},
+      child: Card(
+        elevation: 8,
+        child: Container(
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage("assets/images/starters.png"),
+              fit: BoxFit.cover,
+            ),
+          ),
+          alignment: Alignment.bottomCenter,
+          child: Container(
+              padding: EdgeInsets.all(12),
+              decoration: BoxDecoration(
+                color: Colors.black.withOpacity(0.5),
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Text(
+                    item.name,
+                    style: TextStyle(
+                      fontSize: 24,
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
+              )),
+        ),
+      ),
+    );
   }
 }

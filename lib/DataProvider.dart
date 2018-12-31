@@ -10,13 +10,5 @@ List getMainItemsList() {
   list.add(MainItems(name: "Ice Cream"));
   list.add(MainItems(name: "Juice"));
   list.add(MainItems(name: "Starters"));
-  list.add(MainItems(name: "Chinese"));
-  list.add(MainItems(name: "Ice Cream"));
-  list.add(MainItems(name: "Juice"));
-  list.add(MainItems(name: "Starters"));
-  list.add(MainItems(name: "Chinese"));
-  list.add(MainItems(name: "Ice Cream"));
-  list.add(MainItems(name: "Juice"));
-  list.add(MainItems(name: "Starters"));
   return list;
 }
