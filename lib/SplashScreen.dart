@@ -15,17 +15,17 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.purple,
       ),
-      home: MyHomePage(),
+      home: SplashScreen(),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
+class SplashScreen extends StatefulWidget {
   @override
-  SplashScreen createState() => new SplashScreen();
+  SplashPage createState() => new SplashPage();
 }
 
-class SplashScreen extends State<MyHomePage> {
+class SplashPage extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

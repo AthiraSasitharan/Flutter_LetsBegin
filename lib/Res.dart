@@ -4,6 +4,9 @@ class Strings {
   static String errorPasswordRequired = "Please enter password";
   static String errorInvalidMobileNumber = "Please enter valid mobile number";
 
+//  title
+  static String titleDashboard = "Dashboard Screen";
+
 //  Splash Screen
   static String appName = "Lets Begin";
 
