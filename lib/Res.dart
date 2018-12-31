@@ -1,4 +1,9 @@
 class Strings {
+//  Error Messages
+  static String errorMobileNumberRequired = "Please enter mobile number";
+  static String errorPasswordRequired = "Please enter password";
+  static String errorInvalidMobileNumber = "Please enter valid mobile number";
+
 //  Splash Screen
   static String appName = "Lets Begin";
 
