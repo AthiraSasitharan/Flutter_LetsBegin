@@ -1,4 +1,5 @@
 class MainItems{
 final String name;
-const MainItems({this.name});
+final String image;
+const MainItems({this.name, this.image});
 }

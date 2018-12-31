@@ -42,6 +42,9 @@ flutter:
     - assets/images/chinese.png
     - assets/images/icecream.png
     - assets/images/juice.png
+    - assets/images/south_indian.png
+    - assets/images/salad.png
+    - assets/images/sweets.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.io/assets-and-images/#resolution-aware.

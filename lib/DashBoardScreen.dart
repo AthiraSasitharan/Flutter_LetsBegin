@@ -46,11 +46,10 @@ class PlanentItem extends StatelessWidget {
     return GestureDetector(
       onTap: () {},
       child: Card(
-        elevation: 8,
         child: Container(
           decoration: BoxDecoration(
             image: DecorationImage(
-              image: AssetImage("assets/images/starters.png"),
+              image: AssetImage(item.image),
               fit: BoxFit.cover,
             ),
           ),
