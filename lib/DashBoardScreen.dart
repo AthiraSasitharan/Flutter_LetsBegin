@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_lets_begin/DataProvider.dart';
+import 'package:flutter_lets_begin/DetailScreen.dart';
 import 'package:flutter_lets_begin/Res.dart';
 import 'package:flutter_lets_begin/models.dart';
 
@@ -44,7 +45,9 @@ class PlanentItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: () {
+        loadNext(context, item);
+      },
       child: Card(
         child: Container(
           decoration: BoxDecoration(
@@ -76,4 +79,9 @@ class PlanentItem extends StatelessWidget {
       ),
     );
   }
+}
+
+void loadNext(BuildContext context, MainItems item) {
+  Navigator.push(context,
+      MaterialPageRoute(builder: (context) => DetailScreen(title: item.name)));
 }
