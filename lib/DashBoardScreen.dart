@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_lets_begin/DataProvider.dart';
 import 'package:flutter_lets_begin/DetailScreen.dart';
+import 'package:flutter_lets_begin/DetailsPageView.dart';
 import 'package:flutter_lets_begin/Res.dart';
 import 'package:flutter_lets_begin/models.dart';
 
@@ -86,5 +87,5 @@ void loadNext(BuildContext context, int index) {
   Navigator.push(
       context,
       MaterialPageRoute(
-          builder: (context) => DetailScreen(selectedItemIndex: 2)));
+          builder: (context) => DetailsPageView(selectedItemIndex: index)));
 }
