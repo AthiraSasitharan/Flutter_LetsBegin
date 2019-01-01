@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_lets_begin/models.dart';
+import 'package:flutter_lets_begin/utils/StarRatingBar.dart';
 
 String title = "Init";
 PageController pageController;
@@ -58,9 +59,75 @@ class PlanentItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-        leading: CircleAvatar(child: Text(item.name[0])),
-        title: Text(item.name),
-        subtitle: Text(item.name));
+    return SingleChildScrollView(
+      child: Column(
+        children: <Widget>[
+          Image.asset(
+            item.image,
+            height: 240,
+            width: double.infinity,
+            fit: BoxFit.cover,
+          ),
+          Container(
+            padding: EdgeInsets.all(16),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Row(
+                  children: <Widget>[
+                    Expanded(
+                      child: Text(
+                        "Price: ₹170",
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.normal,
+                          color: Colors.black54,
+                        ),
+                      ),
+                    ),
+                    IconButton(
+                      icon: Icon(Icons.favorite),
+                      onPressed: null,
+                    ),
+                  ],
+                ),
+                StarRating(
+                  rating: 3.5,
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                Text(
+                  item.name,
+                  style: TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black54,
+                  ),
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                Text(
+                  "I am trying to create a star bar for user ratings, the following image is from the play store to illustrate what I am trying to achieve: "
+                      "I have been able to achieve the following, which is functional as you can see, but when I look at my code, "
+                      "I feel like there must be a smarter way to do it, and the really bugging part is that IconButton hit area is being shifted up a little bit,"
+                      "so when you touch the actual star it does not register as a touch event "
+                      "(i.e: you have to aim higher than where the button is positioned in order for your touch to be registered, "
+                      "which makes for a bad UX) you can check what I mean by keeping an eye on the splash effect when I click on any of the stars: "
+                      "Too much repetition and padding! duh. Anyway, that's how I'd do it. Simple, reusable. You can use it both with and without clicks (no click disable the ripple effect)."
+                      " Half stars too. And use primary color for filled stars if no color is specified.",
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.normal,
+                    color: Colors.black54,
+                  ),
+                ),
+              ],
+            ),
+          )
+        ],
+      ),
+    );
   }
 }
