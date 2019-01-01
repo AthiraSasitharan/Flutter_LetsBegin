@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_lets_begin/DataProvider.dart';
 import 'package:flutter_lets_begin/DetailsPageView.dart';
-import 'package:flutter_lets_begin/Res.dart';
+import 'package:flutter_lets_begin/utils/Res.dart';
 import 'package:flutter_lets_begin/models.dart';
 
 var list = List<MainItems>();

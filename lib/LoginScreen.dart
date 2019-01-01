@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_lets_begin/DashBoardScreen.dart';
-import 'package:flutter_lets_begin/Res.dart';
+import 'package:flutter_lets_begin/utils/Res.dart';
 
 final formValidationKey = GlobalKey<FormState>();
 bool autoValidate = false;
