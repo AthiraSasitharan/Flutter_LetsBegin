@@ -30,7 +30,7 @@ class createView extends StatelessWidget {
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
         ),
-        itemBuilder: (context, index) => PlanentItem(list[index]),
+        itemBuilder: (context, index) => PlanentItem(list[index], index),
         itemCount: list.length,
       ),
     );
@@ -39,14 +39,15 @@ class createView extends StatelessWidget {
 
 class PlanentItem extends StatelessWidget {
   final MainItems item;
+  final int selectedItemIndex;
 
-  PlanentItem(this.item);
+  PlanentItem(this.item, this.selectedItemIndex);
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        loadNext(context, item);
+        loadNext(context, selectedItemIndex);
       },
       child: Card(
         child: Container(
@@ -81,7 +82,9 @@ class PlanentItem extends StatelessWidget {
   }
 }
 
-void loadNext(BuildContext context, MainItems item) {
-  Navigator.push(context,
-      MaterialPageRoute(builder: (context) => DetailScreen(title: item.name)));
+void loadNext(BuildContext context, int index) {
+  Navigator.push(
+      context,
+      MaterialPageRoute(
+          builder: (context) => DetailScreen(selectedItemIndex: 2)));
 }

@@ -1,24 +1,8 @@
 import 'package:flutter/material.dart';
 
-
-/*class DetailScreen extends StatelessWidget {
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return new MaterialApp(
-      title: 'Flutter Demo',
-      theme: new ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: new MyHomePage(title: 'Flutter Demo Home Page'),
-    );
-  }
-}*/
-
 class DetailScreen extends StatefulWidget {
-  DetailScreen({Key key, this.title}) : super(key: key);
-
-  final String title;
+  DetailScreen({Key key, this.selectedItemIndex}) : super(key: key);
+  final int selectedItemIndex;
 
   @override
   _MyHomePageState createState() => new _MyHomePageState();
@@ -26,7 +10,7 @@ class DetailScreen extends StatefulWidget {
 
 class _MyHomePageState extends State<DetailScreen> {
   PageController _pageController;
-  int _page = 0;
+  int index;
   String _title = "MyApp";
   Color _appBarColor = Colors.pink;
 
@@ -68,7 +52,7 @@ class _MyHomePageState extends State<DetailScreen> {
           ),
         ],
         onTap: navigateToPage,
-        currentIndex: _page,
+        currentIndex: index,
       ),
     );
   }
@@ -96,7 +80,7 @@ class _MyHomePageState extends State<DetailScreen> {
         break;
     }
     setState(() {
-      this._page = page;
+      this.index = page;
       this._title = _temptitle;
       this._appBarColor = _tempColor;
     });
@@ -105,8 +89,8 @@ class _MyHomePageState extends State<DetailScreen> {
   @override
   void initState() {
     super.initState();
-    _pageController = new PageController();
-    _title = "People";
+    index = widget.selectedItemIndex;
+    _pageController = PageController(initialPage: index);
   }
 
   @override
