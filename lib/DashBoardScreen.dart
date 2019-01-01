@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_lets_begin/DataProvider.dart';
-import 'package:flutter_lets_begin/DetailScreen.dart';
 import 'package:flutter_lets_begin/DetailsPageView.dart';
 import 'package:flutter_lets_begin/Res.dart';
 import 'package:flutter_lets_begin/models.dart';
+
+var list = List<MainItems>();
 
 class DashBoardScreen extends StatelessWidget {
   @override
@@ -20,8 +21,6 @@ class DashBoardScreen extends StatelessWidget {
 }
 
 class createView extends StatelessWidget {
-  var list = List<MainItems>();
-
   @override
   Widget build(BuildContext context) {
     list = getMainItemsList();
@@ -87,5 +86,5 @@ void loadNext(BuildContext context, int index) {
   Navigator.push(
       context,
       MaterialPageRoute(
-          builder: (context) => DetailsPageView(selectedItemIndex: index)));
+          builder: (context) => DetailsPageView(selectedItemIndex: index, fetchedList: list)));
 }

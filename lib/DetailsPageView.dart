@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_lets_begin/models.dart';
 
 String title = "Init";
 PageController pageController;
 int index = 0;
+var list = List<MainItems>();
 
 class DetailsPageView extends StatefulWidget {
-  DetailsPageView({Key key, this.selectedItemIndex});
+  DetailsPageView({Key key, this.selectedItemIndex, this.fetchedList});
+
   int selectedItemIndex;
+  List<MainItems> fetchedList;
 
   @override
   State<StatefulWidget> createState() {
@@ -21,27 +25,19 @@ class CreateDetailsPage extends State<DetailsPageView> {
       appBar: AppBar(
         title: Text(title),
       ),
-      body: PageView(
-        controller: pageController,
+      body: PageView.builder(
+        itemBuilder: (context, index) => PlanentItem(list[index]),
+        itemCount: list.length,
         onPageChanged: onPageSelected,
-        children: <Widget>[
-          Container(
-            child: Center(child: CircleAvatar(child: Text("1"))),
-          ),
-          Container(
-            child: Center(child: Text("2")),
-          ),
-          Container(
-            child: Center(child: Text("Stats")),
-          ),
-        ],
+        controller: pageController,
       ),
     );
   }
 
   void onPageSelected(int page) {
     setState(() {
-      title = page.toString();
+      var item = list[page];
+      title = item.name;
     });
   }
 
@@ -49,7 +45,22 @@ class CreateDetailsPage extends State<DetailsPageView> {
   void initState() {
     super.initState();
     index = widget.selectedItemIndex;
-    title = index.toString();
+    list = widget.fetchedList;
+    title = list[index].name;
     pageController = PageController(initialPage: index);
+  }
+}
+
+class PlanentItem extends StatelessWidget {
+  final MainItems item;
+
+  PlanentItem(this.item);
+
+  @override
+  Widget build(BuildContext context) {
+    return ListTile(
+        leading: CircleAvatar(child: Text(item.name[0])),
+        title: Text(item.name),
+        subtitle: Text(item.name));
   }
 }
