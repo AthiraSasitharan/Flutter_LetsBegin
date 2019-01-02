@@ -27,7 +27,7 @@ class CreateDetailsPage extends State<DetailsPageView> {
         title: Text(title),
       ),
       body: PageView.builder(
-        itemBuilder: (context, index) => PlanentItem(list[index]),
+        itemBuilder: (context, index) => PlanetIten(list[index]),
         itemCount: list.length,
         onPageChanged: onPageSelected,
         controller: pageController,
@@ -50,15 +50,8 @@ class CreateDetailsPage extends State<DetailsPageView> {
     title = list[index].name;
     pageController = PageController(initialPage: index);
   }
-}
 
-class PlanentItem extends StatelessWidget {
-  final MainItems item;
-
-  PlanentItem(this.item);
-
-  @override
-  Widget build(BuildContext context) {
+  Widget PlanetIten(MainItems item) {
     return SingleChildScrollView(
       child: Column(
         children: <Widget>[
@@ -86,8 +79,15 @@ class PlanentItem extends StatelessWidget {
                       ),
                     ),
                     IconButton(
-                      icon: Icon(Icons.favorite),
-                      onPressed: null,
+                      icon: Icon(
+                        Icons.favorite,
+                        color: item.isFavourite ? Colors.red : Colors.black45,
+                      ),
+                      onPressed: () {
+                        setState(() {
+                          item.isFavourite = !item.isFavourite;
+                        });
+                      },
                     ),
                   ],
                 ),

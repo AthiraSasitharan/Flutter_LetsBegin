@@ -1,5 +1,7 @@
-class MainItems{
-final String name;
-final String image;
-const MainItems({this.name, this.image});
+class MainItems {
+  String name;
+  String image;
+  bool isFavourite;
+
+  MainItems({this.name, this.image, this.isFavourite = false});
 }
