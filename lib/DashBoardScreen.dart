@@ -15,12 +15,12 @@ class DashBoardScreen extends StatelessWidget {
           Strings.titleDashboard,
         ),
       ),
-      body: createView(),
+      body: CreateView(),
     );
   }
 }
 
-class createView extends StatelessWidget {
+class CreateView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     list = getMainItemsList();

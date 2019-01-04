@@ -1,7 +1,6 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_lets_begin/utils/BaseUtilis.dart';
 import 'package:flutter_lets_begin/LoginScreen.dart';
 import 'package:flutter_lets_begin/utils/Res.dart';
 

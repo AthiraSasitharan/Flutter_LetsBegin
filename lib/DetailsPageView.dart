@@ -27,7 +27,7 @@ class CreateDetailsPage extends State<DetailsPageView> {
         title: Text(title),
       ),
       body: PageView.builder(
-        itemBuilder: (context, index) => PlanetIten(list[index]),
+        itemBuilder: (context, index) => planetItem(list[index]),
         itemCount: list.length,
         onPageChanged: onPageSelected,
         controller: pageController,
@@ -51,7 +51,7 @@ class CreateDetailsPage extends State<DetailsPageView> {
     pageController = PageController(initialPage: index);
   }
 
-  Widget PlanetIten(MainItems item) {
+  Widget planetItem(MainItems item) {
     return SingleChildScrollView(
       child: Column(
         children: <Widget>[

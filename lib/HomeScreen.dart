@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_lets_begin/DashBoardScreen.dart';
+import 'package:flutter_lets_begin/DetailsPageView.dart';
 import 'package:flutter_lets_begin/utils/Res.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -8,25 +10,34 @@ class HomeScreen extends StatefulWidget {
   }
 }
 
-class HomePage extends State<HomeScreen> {
+class HomePage extends State<HomeScreen> with SingleTickerProviderStateMixin {
   int index = 0;
+  TabController tabController;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: BottomNavigationBar(
-        items: [
-          BottomNavigationBarItem(
+      body: TabBarView(
+        children: <Widget>[
+          DashBoardScreen(),
+          DetailsPageView(),
+        ],
+        controller: tabController,
+      ),
+      bottomNavigationBar: TabBar(
+        tabs: <Tab>[
+          Tab(
             icon: Icon(Icons.home),
-            title: Text(Strings.dashboard),
+            text: Strings.dashboard,
           ),
-          BottomNavigationBarItem(
+          Tab(
             icon: Icon(Icons.details),
-            title: Text(Strings.dashboard),
+            text: Strings.details,
           )
         ],
-        onTap: setPage,
-        currentIndex: index,
+        controller: tabController,
+        labelColor: Colors.purple,
+        unselectedLabelColor: Colors.black45,
       ),
     );
   }
@@ -35,5 +46,11 @@ class HomePage extends State<HomeScreen> {
     setState(() {
       index = currentIndex;
     });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    tabController = TabController(length: 2, vsync: this);
   }
 }
