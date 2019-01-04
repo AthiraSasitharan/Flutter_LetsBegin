@@ -15,4 +15,8 @@ class Strings {
   static String mobileNumber = "Mobile Number";
   static String password = "Password";
   static String register = "Register";
+
+//  Bottom Navigation Items
+  static String dashboard = "Dashboard";
+  static String details = "Details";
 }

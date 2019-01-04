@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_lets_begin/DashBoardScreen.dart';
+import 'package:flutter_lets_begin/HomeScreen.dart';
 import 'package:flutter_lets_begin/utils/Res.dart';
 
 final formValidationKey = GlobalKey<FormState>();
@@ -115,5 +116,5 @@ class LoginPage extends State<LoginScreen> {
 
 void loadNext(BuildContext context) {
   Navigator.push(
-      context, new MaterialPageRoute(builder: (context) => DashBoardScreen()));
+      context, new MaterialPageRoute(builder: (context) => HomeScreen()));
 }
