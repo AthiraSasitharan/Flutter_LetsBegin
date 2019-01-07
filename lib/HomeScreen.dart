@@ -24,20 +24,41 @@ class HomePage extends State<HomeScreen> with SingleTickerProviderStateMixin {
         ],
         controller: tabController,
       ),
-      bottomNavigationBar: TabBar(
-        tabs: <Tab>[
-          Tab(
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.add),
+        onPressed: () {},
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      /*bottomNavigationBar: BottomAppBar(
+        shape: CircularNotchedRectangle(),
+        child: new Row(
+          mainAxisSize: MainAxisSize.max,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            IconButton(
+              icon: Icon(Icons.menu),
+              onPressed: () {},
+            ),
+            IconButton(
+              icon: Icon(Icons.search),
+              onPressed: () {},
+            ),
+          ],
+        ),
+      ),*/
+      bottomNavigationBar: BottomNavigationBar(
+        items: [
+          BottomNavigationBarItem(
             icon: Icon(Icons.home),
-            text: Strings.dashboard,
+            title: Text(Strings.dashboard),
           ),
-          Tab(
+          BottomNavigationBarItem(
             icon: Icon(Icons.details),
-            text: Strings.details,
+            title: Text(Strings.dashboard),
           )
         ],
-        controller: tabController,
-        labelColor: Colors.purple,
-        unselectedLabelColor: Colors.black45,
+        onTap: setPage,
+        currentIndex: index,
       ),
     );
   }
