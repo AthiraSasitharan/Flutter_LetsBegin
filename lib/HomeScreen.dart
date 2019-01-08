@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_lets_begin/DashBoardScreen.dart';
 import 'package:flutter_lets_begin/DetailsPageView.dart';
+import 'package:flutter_lets_begin/utils/BottomBar.dart';
 import 'package:flutter_lets_begin/utils/Res.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -29,36 +30,16 @@ class HomePage extends State<HomeScreen> with SingleTickerProviderStateMixin {
         onPressed: () {},
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      /*bottomNavigationBar: BottomAppBar(
-        shape: CircularNotchedRectangle(),
-        child: new Row(
-          mainAxisSize: MainAxisSize.max,
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            IconButton(
-              icon: Icon(Icons.menu),
-              onPressed: () {},
-            ),
-            IconButton(
-              icon: Icon(Icons.search),
-              onPressed: () {},
-            ),
-          ],
-        ),
-      ),*/
-      bottomNavigationBar: BottomNavigationBar(
+      bottomNavigationBar: BottomBar(
+        selectedColor: Colors.purple,
+        color: Colors.black38,
+        onTabSelected: setPage,
         items: [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            title: Text(Strings.dashboard),
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.details),
-            title: Text(Strings.dashboard),
-          )
+          FABBottomAppBarItem(iconData: Icons.menu, text: 'This'),
+          FABBottomAppBarItem(iconData: Icons.layers, text: 'Is'),
+//          FABBottomAppBarItem(iconData: Icons.dashboard, text: 'Bottom'),
+//          FABBottomAppBarItem(iconData: Icons.info, text: 'Bar'),
         ],
-        onTap: setPage,
-        currentIndex: index,
       ),
     );
   }
