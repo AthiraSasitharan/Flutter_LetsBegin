@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_lets_begin/DashBoardScreen.dart';
 import 'package:flutter_lets_begin/DetailsPageView.dart';
+import 'package:flutter_lets_begin/LoginScreen.dart';
 import 'package:flutter_lets_begin/utils/BottomBar.dart';
 import 'package:flutter_lets_begin/utils/Res.dart';
 
@@ -21,7 +22,9 @@ class HomePage extends State<HomeScreen> with SingleTickerProviderStateMixin {
       body: TabBarView(
         children: <Widget>[
           DashBoardScreen(),
-          DetailsPageView(),
+          LoginScreen(),
+          DashBoardScreen(),
+          LoginScreen(),
         ],
         controller: tabController,
       ),
@@ -31,14 +34,15 @@ class HomePage extends State<HomeScreen> with SingleTickerProviderStateMixin {
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: BottomBar(
-        selectedColor: Colors.purple,
-        color: Colors.black38,
+        selectedColor: Colors.white,
+        color: Colors.white54,
+        backgroundColor: Colors.purple,
         onTabSelected: setPage,
         items: [
           FABBottomAppBarItem(iconData: Icons.menu, text: 'This'),
           FABBottomAppBarItem(iconData: Icons.layers, text: 'Is'),
-//          FABBottomAppBarItem(iconData: Icons.dashboard, text: 'Bottom'),
-//          FABBottomAppBarItem(iconData: Icons.info, text: 'Bar'),
+          FABBottomAppBarItem(iconData: Icons.dashboard, text: 'Bottom'),
+          FABBottomAppBarItem(iconData: Icons.info, text: 'Bar'),
         ],
       ),
     );
@@ -47,6 +51,7 @@ class HomePage extends State<HomeScreen> with SingleTickerProviderStateMixin {
   void setPage(int currentIndex) {
     setState(() {
       index = currentIndex;
+      tabController.animateTo(index);
     });
   }
 

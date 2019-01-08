@@ -51,6 +51,9 @@ class CreateBottomBarView extends State<BottomBar>{
     });
     items.insert(items.length >> 1, buildMiddleTabItem());
     return BottomAppBar(
+      color: widget.backgroundColor,
+      shape: CircularNotchedRectangle(),
+      notchMargin: 10,
       child: Row(
         mainAxisSize: MainAxisSize.max,
         mainAxisAlignment: MainAxisAlignment.spaceAround,
